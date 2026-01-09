@@ -13,8 +13,8 @@ interface Props {
 
 const AdminPanel: React.FC<Props> = ({ manhuas, onUpdateManhuas, currentUser, supportContacts, onUpdateSupportContacts }) => {
   const [activeTab, setActiveTab] = useState<'content' | 'slider' | 'github'>('content');
-  const [ghToken, setGhToken] = useState(localStorage.getItem('gh_BpDy4wdPdzF32Oki5IVPdoihAwG27r2tseIH') || '');
-  const [ghRepo, setGhRepo] = useState(localStorage.getItem('gh_Rastgo12/aplikashn') || '');
+  const [ghToken, setGhToken] = useState(localStorage.getItem('gh_token') || '');
+  const [ghRepo, setGhRepo] = useState(localStorage.getItem('gh_repo') || '');
   const [isSyncing, setIsSyncing] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
   
