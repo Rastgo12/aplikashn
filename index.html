@@ -3,60 +3,74 @@
 <html lang="ku" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KurdManhua - مانھوا بە کوردی</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>KurdManhua | گەورەترین پلاتفۆرمی خوێندنەوەی مانھوا بە کوردی</title>
+    <meta name="description" content="KurdManhua باشترین وێبسایتە بۆ خوێندنەوەی نوێترین مانھوا و مانگا بە زمانی کوردی بە کوالێتی بەرز." />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+      :root {
+        --primary: #6366f1;
+        --bg-dark: #020617;
+        --card-bg: #0f172a;
+      }
       body {
         font-family: 'Noto Sans Arabic', sans-serif;
-        background-color: #0f172a;
+        background-color: var(--bg-dark);
         color: #f8fafc;
-        user-select: none; /* Anti-copy attempt */
+        user-select: none;
+        overflow-x: hidden;
       }
-      /* Prevent screenshot by overlaying (limited effectiveness on web but adds friction) */
-      .screenshot-protection {
-        pointer-events: none;
-        position: fixed;
-        inset: 0;
-        z-index: 9999;
-        background: repeating-linear-gradient(
-          45deg,
-          transparent,
-          transparent 100px,
-          rgba(255, 255, 255, 0.01) 100px,
-          rgba(255, 255, 255, 0.01) 200px
-        );
+      /* Smooth transitions for all elements */
+      * {
+        transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
       }
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
-        width: 8px;
+        width: 10px;
       }
       ::-webkit-scrollbar-track {
-        background: #1e293b;
+        background: #020617;
       }
       ::-webkit-scrollbar-thumb {
-        background: #334155;
-        border-radius: 4px;
+        background: #1e293b;
+        border-radius: 5px;
+        border: 2px solid #020617;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #475569;
+        background: #334155;
+      }
+      /* Prevent Image dragging */
+      img {
+        -webkit-user-drag: none;
+        user-drag: none;
+      }
+      /* Anti-Screenshot Overlay */
+      .secure-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        pointer-events: none;
+        background: radial-gradient(circle, transparent 20%, rgba(2, 6, 23, 0.05) 100%);
+      }
+      @media print {
+        body { display: none !important; }
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
-  }
-}
-</script>
-</head>
+    <script type="importmap">
+    {
+      "imports": {
+        "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+      }
+    }
+    </script>
+  </head>
   <body>
     <div id="root"></div>
-    <div class="screenshot-protection"></div>
+    <div class="secure-overlay"></div>
   </body>
 </html>
